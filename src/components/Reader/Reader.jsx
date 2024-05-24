@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Progress from "../Progress/Progress";
 
 export default function Reader({ articles }) {
   const [articleIdx, setArticleIdx] = useState(0);
@@ -25,9 +26,7 @@ export default function Reader({ articles }) {
             Next
           </button>
         </div>
-        <p>
-          {articleIdx + 1}/{articles.length}
-        </p>
+        <Progress current={articleIdx + 1} total={articles.length} />
       </div>
 
       <article>
