@@ -11,7 +11,6 @@ const Button = () => {
   return (
     <div>
       <button onClick={handleClick}>Clicks: {click}</button>
-      
     </div>
   );
 };
@@ -29,7 +28,6 @@ export default function App() {
     <div>
       <Button />
       <Button />
-
 
       {/* <button onClick={handleClick} onMouseOver={handleOver}>
         Button
