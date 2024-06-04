@@ -1,21 +1,32 @@
 import { useState } from "react";
 
-const Button = () => {
-  const [click, setClick] = useState(0);
-
-  const handleClick = () => {
-    setClick(click + 1);
-    console.log(click);
-  };
-
+const Button = ({ value, onCount }) => {
   return (
     <div>
-      <button onClick={handleClick}>Clicks: {click}</button>
+      <button onClick={onCount}>Clicks: {value}</button>
     </div>
   );
 };
 
 export default function App() {
+  const [clicks, setClicks] = useState(0);
+  const [values, setValues] = useState({ first: 1, second: 2, third: 3 });
+
+  const handleChangeValues = () => {
+    setValues({ ...values, first: 10, second: 20, third: 30 });
+  };
+
+  const handleClick = () => {
+    setClicks(clicks + 1);
+    console.log(clicks);
+  };
+
+  const handleReset = () => {
+    setClicks(0);
+  };
+
+  const total = values.first + values.second + values.third;
+
   // const handleClick = (event) => {
   //   console.log("click", event);
   // };
@@ -26,8 +37,11 @@ export default function App() {
 
   return (
     <div>
-      <Button />
-      <Button />
+      <button onClick={handleChangeValues}>Change Values: {total}</button>
+
+      <Button value={clicks} onCount={handleClick} />
+      <Button value={clicks} onCount={handleClick} />
+      <button onClick={handleReset}>Reset</button>
 
       {/* <button onClick={handleClick} onMouseOver={handleOver}>
         Button
