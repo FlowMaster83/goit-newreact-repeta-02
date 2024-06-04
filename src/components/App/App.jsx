@@ -1,8 +1,8 @@
 import { useState } from "react";
 
 export default function App() {
-  const [clicks, setClicks] = useState(0);
-
+  const [firstClicks, setFirstClicks] = useState(0);
+  const [secondClicks, setSecondClicks] = useState(0);
   // const handleClick = (event) => {
   //   console.log("click", event);
   // };
@@ -11,9 +11,13 @@ export default function App() {
   //   console.log("hover", event);
   // };
 
-  const handleCounter = () => {
-    setClicks(clicks + 1);
-    console.log(clicks);
+  const handleFirstCounter = () => {
+    setFirstClicks(firstClicks + 1);
+    console.log(firstClicks);
+  };
+
+  const handleSecondCounter = () => {
+    setSecondClicks(secondClicks + 1);
   };
 
   return (
@@ -21,9 +25,10 @@ export default function App() {
       {/* <button onClick={handleClick} onMouseOver={handleOver}>
         Button
       </button> */}
-
-      <button onClick={handleCounter}>Clicks: {clicks}</button>
       {/* <button onClick={() => handleClick(5)}>Button</button> */}
+
+      <button onClick={handleFirstCounter}>Clicks: {firstClicks}</button>
+      <button onClick={handleSecondCounter}>Clicks: {secondClicks}</button>
     </div>
   );
 }
