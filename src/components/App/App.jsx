@@ -18,6 +18,7 @@ export default function App() {
 
   const handleSecondCounter = () => {
     setSecondClicks(secondClicks + 1);
+    console.log(secondClicks);
   };
 
   return (
